@@ -21,7 +21,7 @@ Data/*
 *.joblib
 *.h5
 *.model
-
+*.npy
 
 
 # Fortran module files
