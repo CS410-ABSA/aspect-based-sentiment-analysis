@@ -3,9 +3,7 @@ Data/*
 
 conda_env/*
 
-# python bytecode
-*.pyo
-*.pyc
+ __pycache__
 
 # Prerequisites
 *.d

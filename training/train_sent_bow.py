@@ -1,7 +1,7 @@
 import numpy as np
 #import matplotlib.pyplot as plt
 import pandas as pd
-from nltk import tokenize 
+from nltk import tokenize
 import re
 from nltk.stem.wordnet import WordNetLemmatizer
 from sklearn.pipeline import Pipeline
@@ -25,7 +25,7 @@ for i in range(dataset.shape[0]):
             word = lemma.lemmatize(word)
             lemma_sent.append(word)
         review_sentences.append([dataset.star_rating[i],' '.join(lemma_sent)])
-        
+
 
 del dataset
 
@@ -46,7 +46,7 @@ my_stop_words = list(stopwords.words('english'))
 
 
 # Creating the Bag of Words Model
-    
+
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 cv = CountVectorizer(max_features = 10000,stop_words = my_stop_words)
@@ -91,8 +91,4 @@ vec_clf.fit(X_train, y_train)
 # Predicting the Test set results
 y_pred = vec_clf.predict(X_test)
 
-joblib.dump(vec_clf, 'bow_sa_pipeline.joblib') 
-
-
-
-
+joblib.dump(vec_clf, 'bow_sa_pipeline.joblib')
