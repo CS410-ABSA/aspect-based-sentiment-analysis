@@ -3,14 +3,13 @@ import numpy as np
 import pandas as pd
 from nltk import tokenize 
 import re
-import nltk
 from nltk.stem.wordnet import WordNetLemmatizer
 from sklearn.pipeline import Pipeline
 from sklearn.externals import joblib
 
 
 # Importing the dataset
-dataset = pd.read_table('Data/amazon_reviews_us_Electronics_v1_00.tsv', usecols = ['star_rating','review_body'], header = 0, nrows = 200000, error_bad_lines = False)
+dataset = pd.read_table('amazon_reviews_us_Electronics_v1_00.tsv', usecols = ['star_rating','review_body'], header = 0, nrows = 200000, error_bad_lines = False)
 
 lemma = WordNetLemmatizer()
 review_sentences = []
@@ -92,46 +91,7 @@ vec_clf.fit(X_train, y_train)
 # Predicting the Test set results
 y_pred = vec_clf.predict(X_test)
 
-
-
-
 joblib.dump(vec_clf, 'bow_sa_pipeline.joblib') 
-
-
-
-#class_probs = classifier.decision_function(X_test)
-#class_pred = np.argmax(class_probs,axis=1)
-
-#classifier.classes_
-# Making the Confusion Matrix
-from sklearn.metrics import confusion_matrix
-from sklearn.metrics import accuracy_score
-cm = confusion_matrix(y_test, y_pred)
-
-acc_score = accuracy_score(y_test,y_pred)
-
-myReview = ['the bass in these headphones is bad']
-
-print(vec_clf.predict(myReview)[0])
-
-
-
-
-my_x = cv.transform(myReview)
-
-my_y = classifier.predict(my_x)
-print(my_y[0])
-
-
-
-
-
-
-
-
-
-
-
 
 
 
