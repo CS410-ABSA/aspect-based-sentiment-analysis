@@ -1,6 +1,8 @@
 # Training Data
 Data/*
 
+conda_env/*
+
 # python bytecode
 *.pyo
 *.pyc
