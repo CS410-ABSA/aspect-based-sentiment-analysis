@@ -26,7 +26,7 @@ epochs = 10
 for cnt in range(4):
     
     # Importing the dataset
-    dataset = pd.read_table('Data/amazon_reviews_us_Electronics_v1_00.tsv',  names = ['star_rating','review_body'],usecols = [7,13], skiprows = skip_rows, nrows = n_rows, error_bad_lines = False)
+    dataset = pd.read_table('amazon_reviews_us_Electronics_v1_00.tsv',  names = ['star_rating','review_body'],usecols = [7,13], skiprows = skip_rows, nrows = n_rows, error_bad_lines = False)
     
     
     

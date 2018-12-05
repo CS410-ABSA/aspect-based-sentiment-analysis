@@ -14,19 +14,12 @@ After the environment has been loaded, activate the environment with the followi
 
 ## Training Sentiment Models
 
-To train the sentiment models, first you need to download the Amazon review dataset from s3. After cloning the repo and browsing to the local directory, type the following commands in the linux shell:
+To train the sentiment models, simply navigate to the "training" folder and run the following python files:
 
-* wget https://s3.amazonaws.com/amazon-reviews-pds/tsv/amazon_reviews_us_Electronics_v1_00.tsv.gz
+* setup.py
 
-* gunzip amazon_reviews_us_Electronics_v1_00.tsv.gz
+* train_sent_bow.py
 
-* mkdir Data
+* train_sent_cnn.py
 
-* mv amazon_reviews_us_Electronics_v1_00.tsv Data/amazon_reviews_us_Electronics_v1_00.tsv
-
-Now the sentiment models can be trained using the following commands:
-
-* python train_sent_bow.py
-
-* python train_sent_cnn.py
-
+The models can then be tested by running the "test_sentiment.py" file
