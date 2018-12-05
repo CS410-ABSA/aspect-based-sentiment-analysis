@@ -1,6 +1,10 @@
 # Training Data
 Data/*
 
+# python bytecode
+*.pyo
+*.pyc
+
 # Prerequisites
 *.d
 
