@@ -23,7 +23,7 @@ def preprocess(paragraph):
             lemma_sent.append(word)
         clean_sentences.append(' '.join(lemma_sent))
     return clean_sentences
-    
+
 def sentiments(sentences):
     model = load_model('cnn_absa_model.h5')
     lb = joblib.load('cnn_label_binarizer.joblib')
