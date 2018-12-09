@@ -2,6 +2,8 @@ from sklearn.externals import joblib
 from keras import backend as K
 from keras.models import load_model
 from gensim.models import Word2Vec
+from nltk import tokenize
+from nltk.stem.wordnet import WordNetLemmatizer
 import numpy as np
 import re
 
