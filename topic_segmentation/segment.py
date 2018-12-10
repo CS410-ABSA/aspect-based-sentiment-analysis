@@ -26,3 +26,4 @@ class TopicExtractor:
             print("-------------------------------")
             for bowToken in sentBow:
                 print(self.dictionary[bowToken[0]] + " => " + str(bowToken[1]))
+                

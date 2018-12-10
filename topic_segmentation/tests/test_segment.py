@@ -14,3 +14,4 @@ if __name__ == "__main__":
     test_extract_topics()    
 else:
     raise Exception('Not a module!') 
+    
