@@ -44,9 +44,13 @@ def sentencesToBow(documents):
         docLength = len(document)
         bowDoc = dictionary.doc2bow(document)
         for bowTerm in bowDoc:
+
             docTermFreq = bowTerm[1]
             termDocFreq = dictionary.dfs[bowTerm[0]]
-            termWeight = docTermWeight(docTermFreq, termDocFreq, docLength, avgDocLength, numDocs, k=5, b=0.6)
+            
+            if dictionary[bowTerm[0]] == "see":
+                print(docTermFreq, termDocFreq, docLength, avgDocLength, numDocs)
+            termWeight = docTermWeight(docTermFreq, termDocFreq, docLength, avgDocLength, numDocs, k=5, b=0.1)
             newBowTerm = (bowTerm[0], termWeight)
             bowSentence.append(newBowTerm)
 
