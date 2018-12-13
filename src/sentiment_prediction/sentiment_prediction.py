@@ -10,6 +10,7 @@ import re
 ENCODING_DIM = 150
 MAX_SENT_WORDS = 50
 num_classes = 5
+import sys
 
 #sentences = ['this does not work', 'this is an ok product']
 
@@ -26,7 +27,8 @@ def preprocess(paragraph):
         clean_sentences.append(' '.join(lemma_sent))
     return clean_sentences
 
-def sentiments(sentences):
+def predict_sentiments(sentences):
+    return 4
     model = load_model('cnn_absa_model.h5')
     lb = joblib.load('cnn_label_binarizer.joblib')
     w2v_model = Word2Vec.load('word2vec.model')

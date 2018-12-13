@@ -12,6 +12,7 @@ from keras.layers import Conv2D, MaxPooling2D
 from keras import backend as K
 from sklearn.preprocessing import LabelBinarizer
 from sklearn.externals import joblib
+from tqdm import tqdm
 
 ENCODING_DIM = 150
 MAX_SENT_WORDS = 50
@@ -34,7 +35,8 @@ for cnt in range(4):
     word2vec_sentences = []
     ratings = []
 
-    for i in range(dataset.shape[0]):
+    print('cleaning for round ' + str(cnt))
+    for i in tqdm(range(dataset.shape[0])):
         cleantext = re.sub('<[^<]+?>', '.', str(dataset.review_body[i]).lower())
         cleantext = re.sub('&#[0-9]+;', '', cleantext)
         sentences = tokenize.sent_tokenize(cleantext)

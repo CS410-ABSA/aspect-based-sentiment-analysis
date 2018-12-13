@@ -6,7 +6,7 @@ import re
 from nltk.stem.wordnet import WordNetLemmatizer
 from sklearn.pipeline import Pipeline
 from sklearn.externals import joblib
-
+from tqdm import tqdm
 
 # Importing the dataset
 dataset = pd.read_table('amazon_reviews_us_Electronics_v1_00.tsv', usecols = ['star_rating','review_body'], header = 0, nrows = 200000, error_bad_lines = False)
@@ -14,7 +14,8 @@ dataset = pd.read_table('amazon_reviews_us_Electronics_v1_00.tsv', usecols = ['s
 lemma = WordNetLemmatizer()
 review_sentences = []
 
-for i in range(dataset.shape[0]):
+print('cleaning data...')
+for i in tqdm(range(dataset.shape[0])):
     cleantext = re.sub('<[^<]+?>', '.', str(dataset.review_body[i]).lower())
     cleantext = re.sub('&#[0-9]+;', '', cleantext)
     sentences = tokenize.sent_tokenize(cleantext)
