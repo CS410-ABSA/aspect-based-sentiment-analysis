@@ -5,13 +5,13 @@ import json
 
 app = Flask(__name__)
 
-@app.route('/waga', methods=['POST'])
-def waga():
+@app.route('/test', methods=['POST'])
+def test():
     print(request.get_json(force=True))
     return json.dumps([{"topic_name": "Appliance Amazing 715", "topic_sentiment": 5.0}, {"topic_name": "Want Upper Tine", "topic_sentiment": 4.888888888888889}, {"topic_name": "List Handled Bowl", "topic_sentiment": 5.0}, {"topic_name": "Control Run Rinse", "topic_sentiment": 5.0}, {"topic_name": "Left Seldom Flawlessnot", "topic_sentiment": 5.0}, {"topic_name": "Interior Make Plain", "topic_sentiment": 4.8}, {"topic_name": "Score Percent Plate", "topic_sentiment": 5.0}, {"topic_name": "Threw Tackled Everything", "topic_sentiment": 4.666666666666667}, {"topic_name": "Despite Remaining Rigor", "topic_sentiment": 5.0}, {"topic_name": "Oddly Flexibility Shaped", "topic_sentiment": 5.0}])
 
 @app.route('/')
-def welcome():
+def home():
     return render_template('analyze_reviews.html')
 
 @app.route('/getReviewSentiments', methods=['POST'])
