@@ -1,6 +1,6 @@
 
 import sys
-sys.path.insert(0, '/opt/python/current/app/conda_env/lib/python3.5/site-packages')
+sys.path.insert(0, '/opt/python/current/app/conda_env/lib/python3.6/site-packages')
 
 from flask import Flask, request,render_template
 from src.absa import ABSA
