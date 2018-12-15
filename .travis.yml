@@ -1,6 +1,10 @@
 language: python
 
-install: true
+install:
+  - echo "skipping install"
+
+script:
+  - echo "skipping tests"
 
 deploy:
   - provider: elasticbeanstalk
