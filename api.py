@@ -35,4 +35,5 @@ def home():
 #
 #     return json.dumps(topic_results)
 
-app.run()
+if __name__ == "__main__":
+ app.run()
