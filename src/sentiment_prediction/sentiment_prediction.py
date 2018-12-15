@@ -12,8 +12,6 @@ MAX_SENT_WORDS = 50
 num_classes = 5
 MODEL_DIR = "models/"
 
-#sentences = ['this does not work', 'this is an ok product']
-
 def preprocess(paragraph):
     sentences = tokenize.sent_tokenize(paragraph.lower())
     lemma = WordNetLemmatizer()
