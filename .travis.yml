@@ -14,4 +14,4 @@ deploy:
     app: absa-api-2
     env: production
     bucket_name: absa-api-bucket
-    on: masterg
+    on: master
