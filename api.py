@@ -1,7 +1,8 @@
 
 import sys
 sys.path.insert(0, '/opt/python/current/app/conda_env/lib/python3.6/site-packages')
-
+print("waga")
+print(sys.path)
 from flask import Flask, request,render_template
 from src.absa import ABSA
 import json
