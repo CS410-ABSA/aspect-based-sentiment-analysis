@@ -1,3 +1,5 @@
 
 import nltk
-nltk.download('wordnet')
+
+# Download dir for elastic beanstalk
+nltk.download('wordnet', download_dir='/usr/local/lib/nltk_data')
