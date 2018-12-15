@@ -2,6 +2,10 @@
 import sys
 
 sys.path.insert(0, '/opt/python/current/app')
+sys.path.insert(0, '/opt/python/current/app/conda_env')
+
+print("dude man")
+print(sys.path)
 
 
 from flask import Flask, request,render_template
