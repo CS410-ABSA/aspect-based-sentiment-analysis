@@ -67,7 +67,7 @@ dependencies:
   # - xz=5.2.3
   # - zeromq=4.2.5
   # - zlib=1.2.11
-  # - pip:
+  - pip:
   #   - beautifulsoup4==4.6.0
   #   - bs4==0.0.1
   #   - cython==0.27.3
