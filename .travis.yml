@@ -1,5 +1,6 @@
 language: python
 
+install: true
 
 deploy:
   - provider: elasticbeanstalk
@@ -9,4 +10,4 @@ deploy:
     app: absa-api-2
     env: production
     bucket_name: absa-api-bucket
-    on: master
+    on: masterg
