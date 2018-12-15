@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Password Reset Email</title>
+<style>
+
+body {
+  background-color: green;
+  align-content: center;
+  text-align: center;
+  margin-top: 100px;
+}
+
+body .app {
+  display: flex;
+  justify-content: center;
+}
+
+body .input-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body .input-form textarea {
+  font-size: 15px;
+  padding: 15px;
+}
+
+body .input-form .input-footer button {
+  width: 300px;
+  height: 50px;
+  margin: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+body .input-form .input-footer .input-topic-count {
+  height: 24px;
+  font-size: 15px;
+}
+
+body .output {
+  width: 500px;
+  height: 545px;
+  font-size: 20px;
+  background-color: white;
+  overflow-y: scroll;
+  margin-left: 20px;
+}
+
+body .output .output-header {
+  font-size: 25px;
+  margin-top: 15px;
+  margin-bottom: 14px;
+}
+
+body .output .output-loading-message {
+  margin-top: 50px;
+  font-size: 35px;
+}
+
+</style>
+</head>
+
+<body>
+  <div class="app">
+    <div class="input-form">
+      <textarea rows="30" cols="60", id="review-input", placeholder="Paste your review here"></textarea>
+      <div class="input-footer">
+        <input id="input-topic-count", class="input-topic-count", placeholder="Topic Count">
+        <button onclick="processReview()">Process Review</button>
+      </div>
+
+    </div>
+
+    <div class="output", id="output">
+      <div class="output-header">
+        Analysis Results
+      </div>
+      <table style="width:100%", id="output-table">
+        <thead>
+          <th>Product Aspect</th>
+          <th>Aspect Sentiment</th>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <div class="output-loading-message", id="output-loading-message"></div>
+    </div>
+  </div>
+
+</body>
+
+<script type="text/javascript">
+  function processReview(){
+    clearOutputTable();
+    displayLoadingMessage();
+
+    var review = document.getElementById('review-input').value;
+    if (!review) {
+      alert("A review is required");
+      return
+    }
+
+    var topicCount = parseInt(document.getElementById('input-topic-count').value);
+    if (!topicCount) {
+      alert("A valid topic count is required");
+      return;
+    }
+
+    fetch('http://127.0.0.1:5000/getReviewSentiments', {
+      method: "POST",
+      body: JSON.stringify({
+        review,
+        topic_count: topicCount
+      }),
+    })
+    .then(readableStream => (readableStream.json()))
+    .then(reviewSentiments => {
+      clearLoadingMessage();
+      var sentimentTable = document.querySelector('#output-table tbody');
+      for (var reviewSentiment of reviewSentiments) {
+        row = sentimentTable.insertRow(-1)
+        row.insertCell(0).innerHTML = reviewSentiment.topic_name;
+        row.insertCell(1).innerHTML = reviewSentiment.topic_sentiment.toFixed(1);
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      alert("There was a problem processing the review. Try fewer topics or a longer review.");
+      clearLoadingMessage();
+    })
+
+    function clearOutputTable() {
+      var tableBody = document.querySelector('#output #output-table tbody');
+      while (tableBody.firstChild) {
+        tableBody.firstChild.remove();
+      }
+    }
+
+    function displayLoadingMessage() {
+      document.getElementById('output-loading-message').innerHTML = "Analyzing Review...";
+    }
+
+    function clearLoadingMessage() {
+      document.getElementById('output-loading-message').innerHTML = "";
+    }
+  }
+</script>
+
+</html>

@@ -42,21 +42,21 @@ You can also make calls with the Home Hub. Since Google Assistant can recognize 
 
 You can always swipe right on the screen to go back a page, or swipe up for quick settings like volume and brightness. You can't download apps or browse the web as you could on an ordinary tablet, but all of the content of the Google Home Hub is meant to be visible from across the room.
 
-Other helpful features include routines, which allow you to play videos or podcasts, get directions to work and turn on your connected lights with a simple command like "good morning." If you control your smart home with a voice command, you'll see your device pop up on the screen. Change the temp of your thermostat, and you'll see buttons and sliders to tweak the temp further or change the mode.
+Other helpful features include routines, which allow you to play videos or podcasts, get directions to work and turn on your connected lights with a simple command like 'good morning.' If you control your smart home with a voice command, you'll see your device pop up on the screen. Change the temp of your thermostat, and you'll see buttons and sliders to tweak the temp further or change the mode.
 
 All of these features are the same on all of the Google Assistant-equipped smart displays, and my favorite feature of both the Lenovo Smart Display and the JBL Link View has made its way intact to the Google Home Hub. Search for a recipe by voice, or find one in your phone and send it to your display. Google Assistant will read the ingredients and directions out loud and you can see them listed on the screen.
 
-If you ask "how much tomato sauce?" Google will understand that you're referring to the recipe and will give the appropriate answer. You can also multitask while you cook and watch videos, play music, set a timer or add something to your shopping list. Simply say "resume cooking" when you're ready and Google will go right back to where you left off in the recipe. It's a great feature that's well ahead of Alexa's similar recipe feature on the Echo Show.
+If you ask 'how much tomato sauce?' Google will understand that you're referring to the recipe and will give the appropriate answer. You can also multitask while you cook and watch videos, play music, set a timer or add something to your shopping list. Simply say 'resume cooking' when you're ready and Google will go right back to where you left off in the recipe. It's a great feature that's well ahead of Alexa's similar recipe feature on the Echo Show.
 
 Oddly, Google didn't use the same operating system on the Home Hub that it used for the Lenovo Smart Display and the JBL Link View. The third-party devices make use of Android Things -- an open version of the company's famous mobile operating system trimmed down for the sake of connected devices. The Home Hub is built off of Cast -- the same operating system you see when you use Chromecast on your TV.
 
-Diya Jolly, Google's VP of product management, told Ars Technica there was no particular reason for the change. "We just felt we could bring the experience to bear with Cast, and the experiences are the same. We would have easily given the third-parties Cast if they wanted it, but I think most developers are comfortable using Android Things."
+Diya Jolly, Google's VP of product management, told Ars Technica there was no particular reason for the change. 'We just felt we could bring the experience to bear with Cast, and the experiences are the same. We would have easily given the third-parties Cast if they wanted it, but I think most developers are comfortable using Android Things.'
 
 Building all of this functionality onto a different operating system resulted in a few annoyances. When you search for recipes, you can easily scroll through your options with your voice. In this case, scrolling works better than it does on the third-party displays. When you search for restaurants, Google won't recognize the scroll command and will return to the home screen and make you start your search over. The third-party displays don't suffer from this glitch.
 
 Despite the different operating systems, the three devices generally offer the same features and look the same when responding to your commands. Google did save a couple of unique tricks for the Home Hub.
 
-A Digital Wellbeing section of the Google Home app will allow parents to set filters on what videos and music can be streamed to the device. It also allows you to set "downtime" hours in which the Hub won't react to voice commands and can only be used for alarms. You can also screen calls so only recognized contacts come through and only during certain times. The Digital Wellbeing section will be available on third-party displays soon.
+A Digital Wellbeing section of the Google Home app will allow parents to set filters on what videos and music can be streamed to the device. It also allows you to set 'downtime' hours in which the Hub won't react to voice commands and can only be used for alarms. You can also screen calls so only recognized contacts come through and only during certain times. The Digital Wellbeing section will be available on third-party displays soon.
 
 Most of the other changes will be rolling out to the third-party displays eventually, but one in particular will help the Hub stand out from the competition in perpetuity.
 
@@ -75,7 +75,7 @@ Using the Google Photos app on your phone, Google Assistant can help you sort pi
 
 My favorite new feature of the Home Hub will come to Google's third-party displays via an update soon. Swipe down on the touchscreen for a smart home control panel. The panel shows a status of your home including how many lights are on and the current temperature. You'll see shortcut buttons for common tasks that change based on what devices you have synced to your Google Assistant.
 
-You can quickly turn off lights, lock doors or broadcast a message with these shortcuts. At the bottom of the dropdown menu, Google shows lights for the current location you've assigned to the Home Hub. You can also use this menu to "view rooms" and see all of your devices organized by room.
+You can quickly turn off lights, lock doors or broadcast a message with these shortcuts. At the bottom of the dropdown menu, Google shows lights for the current location you've assigned to the Home Hub. You can also use this menu to 'view rooms' and see all of your devices organized by room.
 
 The Home Hub's smart home control panel mirrors the new Google Home app. The app used to be strictly for setting up Google's smart speakers and connecting your smart home devices. Now it functions as a smart home control center as well. You can assign devices to rooms. You can invite family members to your home. You can also segment your gadgets into multiple homes if you have an office and an apartment.
 

@@ -152,4 +152,5 @@ dependencies:
     - protobuf==3.5.1
     - pyyaml==3.12
     - tensorflow-gpu==1.0.0
+    - flask==1.0.2
 prefix: /home/nathan/anaconda2/envs/tensorflow
