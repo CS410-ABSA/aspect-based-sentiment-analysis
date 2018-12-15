@@ -28,7 +28,6 @@ def preprocess(paragraph):
     return clean_sentences
 
 def predict_sentiments(sentences):
-    print("Loading models...")
     model = load_model(MODEL_DIR + 'cnn_absa_model.h5')
     lb = joblib.load(MODEL_DIR + 'cnn_label_binarizer.joblib')
     w2v_model = Word2Vec.load(MODEL_DIR + 'word2vec.model')

@@ -11,8 +11,6 @@ class ABSA:
         doc_topics = self.topicExtractor.get_doc_topics()
         doc_senetiments = array(predict_sentiments(sentences))
 
-        topic_sentiments = []
-        for i in range(numTopics):
-            topic_sentiments.append((i, mean(doc_senetiments[doc_topics == i])))
+        self.topic_sentiments = [(i, mean(doc_senetiments[doc_topics == i])) for i in range(numTopics)]
 
-        print(topic_sentiments)
+        self.topic_names = self.topicExtractor.get_topic_names()

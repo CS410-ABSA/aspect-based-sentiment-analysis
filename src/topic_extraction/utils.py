@@ -33,6 +33,17 @@ def docTermWeight(docTermFreq, termDocFreq, docLength, avgDocLength, numDocs, k=
     return (k+1)*(docTermFreq)*idf/(docTermFreq + k*normDocLength)
 
 
+"""
+Parameters
+----------
+documents : list-of-lists
+    An array of sentences that have been tokenized
+
+Returns
+-------
+bowSentences: list-of-lists
+    An array of sentences in weighted BOW format: (termId, termWeight)
+"""
 def sentencesToBow(documents):
     bowSentences = []
     dictionary = Dictionary(documents)

@@ -25,11 +25,13 @@ class TopicExtractor:
         max_doc_topic_scores = [max_by_index(doc_score,1) for doc_score in doc_scores]
         self.doc_topics = array(list(map(lambda t:t[0], max_doc_topic_scores)))
 
-
-    def extract_topic_label(self):
-        return 3
-
-
+    """
+    Returns
+    -------
+    doc_topics: array
+        array of topic ids where the i-th element is the topic for
+        the i-th sentence in self.raw_sentences/self.processed_sentences
+    """
     def get_doc_topics(self):
         return self.doc_topics
 
@@ -39,6 +41,17 @@ class TopicExtractor:
             print("-------------------------------")
             for bowToken in sentBow:
                 print(self.dictionary[bowToken[0]] + " => " + str(bowToken[1]))
+
+
+    def get_topic_names(self):
+        topic_representations = self.topic_model.show_topics(num_topics=self.num_topics, num_words=3, formatted=False)
+
+        topic_names = []
+        for topic_words_tuple in topic_representations:
+            topic_name = " ".join(map(lambda x: x[0], topic_words_tuple[1])).title()
+            topic_names.append((topic_words_tuple[0], topic_name))
+
+        return topic_names
 
 
     def get_sentences_by_topic_id(self, topic_id, processed=False):
