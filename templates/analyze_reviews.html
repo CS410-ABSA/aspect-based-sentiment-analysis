@@ -10,7 +10,12 @@ body {
   background-color: green;
   align-content: center;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 70px;
+}
+
+body h1 {
+  margin-bottom: 30px;
+  color: wheat;
 }
 
 body .app {
@@ -66,11 +71,12 @@ body .output .output-loading-message {
 </head>
 
 <body>
+  <h1>Product Review Sentiment Analyzer</h1>
   <div class="app">
     <div class="input-form">
       <textarea rows="30" cols="60", id="review-input", placeholder="Paste your review here"></textarea>
       <div class="input-footer">
-        <input id="input-topic-count", class="input-topic-count", placeholder="Topic Count">
+        <input id="input-topic-count", class="input-topic-count", placeholder="Topic Count", type="number">
         <button onclick="processReview()">Process Review</button>
       </div>
 
@@ -97,7 +103,6 @@ body .output .output-loading-message {
 <script type="text/javascript">
   function processReview(){
     clearOutputTable();
-    displayLoadingMessage();
 
     var review = document.getElementById('review-input').value;
     if (!review) {
@@ -106,11 +111,12 @@ body .output .output-loading-message {
     }
 
     var topicCount = parseInt(document.getElementById('input-topic-count').value);
-    if (!topicCount) {
-      alert("A valid topic count is required");
+    if (topicCount < 1) {
+      alert("A topic count > 0 is required");
       return;
     }
 
+    displayLoadingMessage();
     fetch('http://127.0.0.1:5000/getReviewSentiments', {
       method: "POST",
       body: JSON.stringify({
