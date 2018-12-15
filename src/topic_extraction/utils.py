@@ -33,6 +33,17 @@ def docTermWeight(docTermFreq, termDocFreq, docLength, avgDocLength, numDocs, k=
     return (k+1)*(docTermFreq)*idf/(docTermFreq + k*normDocLength)
 
 
+"""
+Parameters
+----------
+documents : list-of-lists
+    An array of sentences that have been tokenized
+
+Returns
+-------
+bowSentences: list-of-lists
+    An array of sentences in weighted BOW format: (termId, termWeight)
+"""
 def sentencesToBow(documents):
     bowSentences = []
     dictionary = Dictionary(documents)
@@ -47,9 +58,7 @@ def sentencesToBow(documents):
 
             docTermFreq = bowTerm[1]
             termDocFreq = dictionary.dfs[bowTerm[0]]
-            
-            if dictionary[bowTerm[0]] == "see":
-                print(docTermFreq, termDocFreq, docLength, avgDocLength, numDocs)
+
             termWeight = docTermWeight(docTermFreq, termDocFreq, docLength, avgDocLength, numDocs, k=5, b=0.1)
             newBowTerm = (bowTerm[0], termWeight)
             bowSentence.append(newBowTerm)
