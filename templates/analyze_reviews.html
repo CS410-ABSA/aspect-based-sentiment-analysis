@@ -117,7 +117,7 @@ body .output .output-loading-message {
     }
 
     displayLoadingMessage();
-    fetch('http://127.0.0.1:5000/getReviewSentiments', {
+    fetch('http://absa-api.us-east-2.elasticbeanstalk.com/getReviewSentiments', {
       method: "POST",
       body: JSON.stringify({
         review,
