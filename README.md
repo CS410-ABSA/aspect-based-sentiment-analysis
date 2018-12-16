@@ -23,3 +23,22 @@ To train the sentiment models, simply navigate to the "training" folder and run 
 * train_sent_cnn.py
 
 The models can then be tested by running the "test_sentiment.py" file
+
+# Methodology
+
+This project consists of two main modules: A topic extraction module and a sentiment prediction module.
+
+## Sentiment Prediction Module
+### Model Training
+(Code is in `src/training`)
+
+### Sentiment Inference
+(Code is in `src/sentiment_prediction`)
+
+## Topic Extraction Module
+
+### Topic Segmentation
+(Code is in `src/topic_segmentation`)
+
+### Inferring a Topic Name
+(Code is in `src/topic_segmentation`)
