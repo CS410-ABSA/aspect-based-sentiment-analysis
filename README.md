@@ -14,7 +14,7 @@ After the environment has been loaded, activate the environment with the followi
 
 ## Training Sentiment Models
 
-To train the sentiment models, simply navigate to the "training" folder and run the following python files:
+To train the sentiment models, simply navigate to the src/training folder and run the following python files:
 
 * setup.py
 
