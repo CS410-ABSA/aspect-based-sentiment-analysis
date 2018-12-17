@@ -27,7 +27,7 @@ The models can then be tested by running the "test_sentiment.py" file
 ## Running Web Interface Locally
 To run the server locally and test out the algorithm, first run `python setup.py` (this will probably take a while as it has to download several model files to the `./models` directory).
 
-!!! NOTE: Part of what setup.py does is download some nltk data to `/usr/local/lib/nltk_data`. Make sure delete this directory if you don't want it.!!!
+!!! NOTE: Part of what setup.py does is download some nltk data to `/usr/local/lib/nltk_data`. Make sure to delete this directory if you don't want it.!!!
 
 Finally run `python api.py` and go to http://localhost:5000.
 
