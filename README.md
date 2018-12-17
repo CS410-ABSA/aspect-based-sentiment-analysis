@@ -26,7 +26,7 @@ The models can then be tested by running the "test_sentiment.py" file
 
 # Methodology
 
-This project consists of two main modules: A topic extraction module and a sentiment prediction module.
+This project comprises of four main modules: A topic extraction module, a sentiment prediction module, an ABSA module to tie the sentiment and topic modules together, and a REST API module to expose the algorithm publicly
 
 ## Sentiment Prediction Module
 ### Model Training
@@ -40,5 +40,21 @@ This project consists of two main modules: A topic extraction module and a senti
 ### Topic Segmentation
 (Code is in `src/topic_segmentation`)
 
+In order to segment a review into topics, the constructor of the class `TopicExtractor` in `src/topic_extraction/topic_extraction.py` takes as input an array of unprocessed sentences and the desired number of topics to extract. The TopicExtractor first preprocesses the sentences and then converts those sentences into a Bag Of Words format with TF-IDF and document length normalization being applied to each term. This bag of words is then passed to the class `gensim.models.ldamodel.LdaModel`. Then the topic weighting for each sentence is found by passing the BOW format to the method `get_document_topics` of the topic model. Finally, the topic of each sentence is inferred by choosing the topic with the highest weight in the sentence. The method `TopicExtractor::get_doc_topics` can then be used to retrieve the topic of each sentence.
+
+More implementation details can be found in the source code.
+
 ### Inferring a Topic Name
 (Code is in `src/topic_segmentation`)
+
+In order to infer a human-readable label of each topic, we used the top three words that contributed most to each topic. Once a `TopicExtractor` object has been created, the `TopicExtractor::get_topic_names` method can be used to retrieve topic labels for each topic.
+
+## ABSA Module
+(Code is in `src/absa.py`)
+
+In order to tie together the two algorithms, the class `ABSA` in `src/absa.py` finds the sentences for each topic and the sentiments for each sentence. Then sentiments are averaged over all sentences in a topic to find an average sentiment for that topic. The topic names are also retrieved using `TopicExtractor::get_topic_names`.
+
+## REST API Module
+(Code is in `api.py` and `templates`)
+
+The root route for the api returns an html page defined in `templates/analyze_reviews.html`. This web-page calls the `/getReviewSentiments` endpoint, passing the user-provided review and topic count. Then `/getReviewSentiments` passes the request and topic count to the `ABSA` class to collect and return topic sentiments and names.
