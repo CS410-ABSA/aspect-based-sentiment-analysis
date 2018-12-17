@@ -81,7 +81,7 @@ class TopicExtractor:
                                     update_every=0,
                                     alpha='auto')
 
-        doc_scores = [self.topic_model.get_document_topics(document) for document in self.sent_bow]
+        doc_scores = [self.topic_model.get_document_topics(document) for document in self.sent_bows]
         max_doc_topic_scores = [max_by_index(doc_score,1) for doc_score in doc_scores]
         self.doc_topics = array(list(map(lambda t:t[0], max_doc_topic_scores)))
 

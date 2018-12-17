@@ -103,6 +103,9 @@ body .output .output-loading-message {
 
 <script type="text/javascript">
   function processReview(){
+    environment = "{{environment}}"
+    apiEndpoint = environment == "production" ? "http://absa-api.us-east-2.elasticbeanstalk.com" : "http://localhost:5000";
+
     clearOutputTable();
 
     var review = document.getElementById('review-input').value;
@@ -118,7 +121,7 @@ body .output .output-loading-message {
     }
 
     displayLoadingMessage();
-    fetch('http://absa-api.us-east-2.elasticbeanstalk.com/getReviewSentiments', {
+    fetch(apiEndpoint + '/getReviewSentiments', {
       method: "POST",
       body: JSON.stringify({
         review,

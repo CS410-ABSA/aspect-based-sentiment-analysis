@@ -9,10 +9,14 @@ import json
 
 application = Flask(__name__)
 
+if __name__ != "__main__":
+    environment = "production"
+else:
+    environment = "local"
 
 @application.route('/')
 def home():
-    return render_template('analyze_reviews.html')
+    return render_template('analyze_reviews.html', environment=environment)
 
 
 @application.route('/getReviewSentiments', methods=['POST'])
