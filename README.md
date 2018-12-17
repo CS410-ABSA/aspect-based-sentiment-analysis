@@ -39,8 +39,12 @@ This project comprises of four main modules: A topic extraction module, a sentim
 ### Model Training
 (Code is in `src/training`)
 
+To evaluate the sentiment of each sentence in the review we trained two separate models and averaged their scores. Both models were trained on Amazon reviews with the target variable being the rating (1-5) that the customer gave for the product. The first model is a bag-of-words model and the code is in: `train_sent_bow.py`. This model tokenizes each sentence into a TF-IDF weighed bag of words and uses logistic regression to model word relationships to output scores. The second model uses a deep-learning convolution neural network (CNN). Each word is vectorized in 150-dimensional space using the gensim Word2Vec library. Each associated word vector is stacked on top of each other in the order that word appears in the sentence. The maximum number of words we allowed for each sentence was 50 resulting in each sentence being converted into a 150 by 50 matrix. So if a sentence had fewer than 50 words, the empty space would be converted to zero-vectors. If the sentence had more than 50 words, it was simply truncated. These input sentence matrices were then fed through a convolutional neural network and trained against the target variables to learn what word patterns resulted in positive/negative scores. After the model is trained, it is saved to the director so that it can be used for sentiment evaluation on new reviews. 
+
 ### Sentiment Inference
 (Code is in `src/sentiment_prediction`)
+
+This code simply imports the pre-trained models, preprocesses the incoming text, and runs sentiment prediction.
 
 ## Topic Extraction Module
 
